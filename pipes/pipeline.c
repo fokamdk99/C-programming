@@ -1,3 +1,12 @@
+/*
+Wywolanie programu pipeline ma następującą postać
+pipeline    cmd1  par11 par12 ...  +    cmd2  par21  par22 ...  =   logfile
+Program ten tworzy dwa procesy potomne za pomocą dwóch poleceń z nieobowiązkowymi parametrami (ozn. cmd1 par11 par12 ... oraz cmd2 par21 par22 ...), przekierowując standardowe wyjście pierwszego procesu na standardowe wejście drugiego, oraz standardowe wyjście drugiego procesu do pliku zwykłego, bądź łącza nazwanego (ozn. logfile). Przykładowo, pomyślne wywołanie:
+pipeline    ls   -lR   /   +     grep   pipeline    =   lista
+powinno utworzyć nowy plik lista o takiej samej zawartości, jak plik lista2 - utworzony poleceniem powłoki:
+ls   -lR   /     |    grep  pipeline   >   lista2
+*/
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "unistd.h"
