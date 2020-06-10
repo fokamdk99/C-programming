@@ -3,3 +3,8 @@ Współbieżnie program rejestr obsługuje na pytania programu ktoto, używając
 Program rejestr, wywołany
 rejestr  -
 usuwa swoją pamięć współdzieloną. Dostęp do pamięci współdzielonej (w trybie odczytu) ma również program monitor. Program ten umożliwia wyprowadzenie aktualnego stanu rejestru na standardowe wyjście.
+
+Wywołanie:
+./rejestr
+./ktoto
+./monitor
