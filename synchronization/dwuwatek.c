@@ -1,3 +1,8 @@
+/*
+program korzystajacy z mutexu oraz zmiennej warunku w celu synchronizacji dwoch watkow,
+z ktorych kazdy wypisuje litere A lub B.
+*/
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
