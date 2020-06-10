@@ -1,0 +1,7 @@
+Program sv jest wielowątkowym pośrednikiem w komunikacji pomiędzy dwoma interakcyjnymi programami cl. Komunikacja pomiędzy każdym cl, a sv odbywa się za pośrednictwem dwóch łączy nazwanych. 
+Każdy z programów cl kopiuje do jednego łącza linie tekstu wprowadzane ze standardowego wejścia, oraz (współbieżnie) odczytuje linie tekstu z drugiego łącza - wyprowadzając je na standardowe wyjście. 
+
+Wywołanie:
+./sv2
+./cl2 0
+./cl2 1
