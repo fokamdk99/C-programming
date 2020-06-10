@@ -1,0 +1,19 @@
+Zestaw programów do współbieżnego odczytu i zapisu komunikatów tekstowych o stałej długości. Komunikaty mają być przechowywane w pamięci dzielonej i dostępne programowi, jako tablica struktur zawierających 2 pola: PID procesu oraz komunikat tekstowy o ustalonym rozmiarze.
+Program administracyjny manager tworzy lub usuwa obiekty IPC.
+Programy reader i writer po uruchomieniu uzyskują dostęp do tablicy komunikatów i działają w następujący sposób:
+
+    writer   k  ”komunikat”   - program zapisuje komunikat komunikat w k-tym wierszu tablicy,
+    reader   k   - program wypisuje na standardowym wyjściu komunikat z k-tego wiersza tablicy (następnie k-ty wiersz może być jeszcze jest zerowany - opcjonalnie).
+
+Każdy dostęp do tablicy komunikatów (t.j. zapis i odczyt) odbywa się w sekcji krytycznej pod ochroną semafora.
+Każdorazowo proces, utworzony przez wykonanie programu, powinien przebywać w sekcji krytycznej przez 5 sekund - ułatwiając obserwację ochrony dostępu do sekcji krytycznej.
+
+Kompilacja:
+gcc -o monitor1 monitor1.c -lrt -lpthread
+gcc -o reader1 reader1.c -lrt -lpthread
+gcc -o writer1 writer1.c -lrt -lpthread
+
+Wywołanie:
+./manager
+./writer1 k komunikat
+./reader1 k
